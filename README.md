@@ -1,4 +1,4 @@
-# Play Hello World Web Tutorial for Java + upload file
+# Play Hello World read file
 
 To follow the steps in this tutorial, you will need the correct version of Java and sbt. The tutorial requires:
 
@@ -35,3 +35,8 @@ To build and run the project:
 3. After the message `Server started, ...` displays, enter the following URL in a browser: <http://localhost:9000>
 
 The Play application responds: `Welcome to the Hello World Tutorial!`
+
+## Use case:
+```bash
+curl localhost:9000/read -F file=@NOTICE
+```

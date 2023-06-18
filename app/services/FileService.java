@@ -1,12 +1,9 @@
 package services;
 
 import play.libs.Files;
-import play.mvc.Http;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
