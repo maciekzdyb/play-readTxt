@@ -1,7 +1,0 @@
-[0m[[0m[31merror[0m] [0m[0m/home/keller/JavaProjects/play-samples-play-java-hello-world-tutorial/app/controllers/HomeController.java:45:1: no suitable method found for copyTo(java.lang.String,boolean)[0m
-[0m[[0m[31merror[0m] [0m[0m    method play.libs.Files.TemporaryFile.copyTo(java.io.File,boolean) is not applicable[0m
-[0m[[0m[31merror[0m] [0m[0m      (argument mismatch; java.lang.String cannot be converted to java.io.File)[0m
-[0m[[0m[31merror[0m] [0m[0m    method play.libs.Files.TemporaryFile.copyTo(java.nio.file.Path,boolean) is not applicable[0m
-[0m[[0m[31merror[0m] [0m[0m      (argument mismatch; java.lang.String cannot be converted to java.nio.file.Path)[0m
-[0m[[0m[31merror[0m] [0m[0mtemporaryFile.copyTo[0m
-[0m[[0m[0minfo[0m] [0m[0mSome messages have been simplified; recompile with -Xdiags:verbose to get full output[0m

@@ -1,10 +1,14 @@
 package controllers;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import play.libs.Json;
 import play.mvc.*;
 import play.libs.Files.TemporaryFile;
+import services.FileService;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -33,28 +37,15 @@ public class HomeController extends Controller {
 
     public Result upload(Http.Request request) {
         Http.MultipartFormData<TemporaryFile> body = request.body().asMultipartFormData();
-        Http.MultipartFormData.FilePart<TemporaryFile> picture = body.getFile("file");
-        if (picture != null) {
-            String fileName = picture.getFilename();
-            System.out.println("filename: " + fileName);
-            long fileSize = picture.getFileSize();
-            String contentType = picture.getContentType();
-            System.out.println("contentType: "+contentType);
-            TemporaryFile temporaryFile = picture.getRef();
-            File file = new File("test.txt");
-            temporaryFile.copyTo(file.toPath(), true);
-            String data ="";
-            try {
-                Scanner scanner = new Scanner(file);
-                while (scanner.hasNextLine()){
-                    data+= scanner.nextLine();
-                }
-                scanner.close();;
-            } catch (FileNotFoundException e) {
-                throw new RuntimeException(e);
-            }
-            System.out.println(data);
-            return ok("File uploaded");
+        Http.MultipartFormData.FilePart<TemporaryFile> filePart = body.getFile("file");
+        if (filePart != null) {
+//            String fileName = filePart.getFilename();
+//            long fileSize = filePart.getFileSize();
+            TemporaryFile temporaryFile = filePart.getRef();
+
+            FileService fileService = new FileService();
+            Map<String, Long> map = fileService.getFrequencyList(temporaryFile);
+            return ok(Json.toJson(map));
         } else {
             return badRequest().flashing("error", "Missing file");
         }
