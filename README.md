@@ -32,11 +32,8 @@ To build and run the project:
 
 2. Build the project. Enter: `sbt run`. The project builds and starts the embedded HTTP server. Since this downloads libraries and dependencies, the amount of time required depends partly on your connection's speed.
 
-3. After the message `Server started, ...` displays, enter the following URL in a browser: <http://localhost:9000>
+3. After the message `Server started, ...` displays, enter the following URL in console: 
 
-The Play application responds: `Welcome to the Hello World Tutorial!`
-
-## Use case:
 ```bash
 curl localhost:9000/read -F file=@NOTICE
 ```
